@@ -32,7 +32,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Create new database
-      run: psql -h localhost -U postgres -c 'CREATE DATABASE e_hayvan_test_database;'
+      run: PGPASSWORD=postgres psql -h localhost -U postgres -c 'CREATE DATABASE e_hayvan_test_database;'
     - name: Set Environment Variables
       run: | 
         echo "EHAYVAN_SPRING_DATASOURCE_URL=${{ secrets.EHAYVAN_SPRING_DATASOURCE_URL }}" >> $GITHUB_ENV
